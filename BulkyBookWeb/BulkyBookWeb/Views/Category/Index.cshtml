@@ -15,8 +15,6 @@
         </div>
     </div>
     <br>
-
-
     <table class="table table-bordered table-striped" style="width:100%">
         <thead>
             <tr>
@@ -29,9 +27,21 @@
             @foreach(var obj in Model)
             {
                 <tr>
-                    <td width="50%">@obj.Name</td>
-                    <td width="30%">@obj.DisplayOrder</td>
-                    <td width="20%">@obj.CreatedDateTime</td>
+                    <td width="30%">
+                        @obj.Name
+                    </td>
+                    <td width="20%">
+                        @obj.DisplayOrder
+                    </td>
+                    <td width="20%">
+                        @obj.CreatedDateTime
+                    </td>
+                    <td>
+                        <div class="w-100 btn-group" role="group">
+                            <a class="btn btn-primary mx-1" asp-controller="Category" asp-action="Edit" asp-route-id="@obj.ID"><i class="bi bi-pencil-square"></i>&nbsp; Edit</a>
+                            <a class="btn btn-primary mx-1" asp-controller="Category" asp-action="Delete" asp-route-id="@obj.ID"><i class="bi bi-trash3"></i>&nbsp; Delete</a>
+                        </div>
+                    </td>
                 </tr>
             }
         </tbody>
